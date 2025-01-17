@@ -1,11 +1,11 @@
 "use client";
-import Button from "@/components/Button";
-import Text from "@/components/Text";
+import Button from "@/ui/Button";
+import Text from "@/ui/Text";
 import { collection, getDocs } from "@firebase/firestore";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import db from "src/utils/firestore";
-import { Quiz } from "@/app/quizzes/types";
+import db from "@/lib/firestore";
+import { Quiz } from "@/quizzes/types";
 
 export default function page() {
   const [quizzes, setQuizzes] = useState<Quiz[]>();

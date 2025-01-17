@@ -1,13 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
-import Button from "@/components/Button";
-import Card from "@/components/Card";
-import Option from "@/components/Option";
-import Text from "@/components/Text";
+import Button from "@/ui/Button";
+import Card from "@/ui/Card";
+import Option from "@/ui/Option";
+import Text from "@/ui/Text";
 import { useRouter } from "next/navigation";
 import { collection, getDoc, getDocs } from "@firebase/firestore";
-import db from "@/utils/firestore";
-import { QuestionProp } from "@/app/quizzes/types";
+import db from "@/lib/firestore";
+import { QuestionProp } from "@/quizzes/types";
 
 export default function Quiz(props: { quizId: string }) {
   const [questions, setQuestion] = useState<QuestionProp[]>([]);
@@ -53,11 +53,11 @@ export default function Quiz(props: { quizId: string }) {
       const newScore = score + 1;
       setScore(newScore);
       if (questionIndex === questions.length - 1) {
-        router.push(`/score?score=${newScore}`);
+        router.push(`${props.quizId}/score?score=${newScore}`);
       }
     } else {
       if (questionIndex === questions.length - 1) {
-        router.push(`/score?score=${score}`);
+        router.push(`${props.quizId}/score?score=${score}`);
       }
     }
     if (questionIndex !== questions.length - 1) {

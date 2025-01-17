@@ -1,5 +1,5 @@
 import { getFirestore } from "@firebase/firestore";
-import firebaseApp from "../lib/firebaseConfig";
+import firebaseApp from "./firebaseConfig";
 
 const db = getFirestore(firebaseApp);
 
